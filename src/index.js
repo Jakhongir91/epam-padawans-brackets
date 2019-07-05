@@ -7,10 +7,9 @@ module.exports = function check(str, bracketsConfig) {
 
     while (subStringExists(str, strings) != -1) {
         str = subStringExists(str, strings);
-        console.log(str);
     }
 
-    return str;
+    return (str.length) ? false : true;
 }
 
 function subStringExists(str, strings) {
@@ -18,17 +17,12 @@ function subStringExists(str, strings) {
     for (i=0; i<strings.length; i++) {
         let index = str.indexOf(strings[i]);
 
-        if (index > 0) {
+        if (index >= 0) {
             str = str.replace(strings[i], "");
 
             return str;
         }
     }
-
-    console.log(i);
-    console.log(strings[i]);
-    console.log(str);
-    console.log(-1);
 
     return -1;
 }
